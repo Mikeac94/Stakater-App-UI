@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stakater-ui-deployment
+spec:
+  selector:
+    matchLabels:
+      app: stakater-ui
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: stakater-ui
+    spec:
+      containers:
+        - name: stakater-ui
+          image: stakater-ui-node
+          ports:
+            - containerPort: 3006
